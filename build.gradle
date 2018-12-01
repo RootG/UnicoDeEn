@@ -3,20 +3,25 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'App'
+mainClassName = 'com.github.rootg.unicodeen.UnicoDeEn'
 
 dependencies {
-    implementation "com.sparkjava:spark-core:2.7.2"
-
-    // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
+    implementation 'com.sparkjava:spark-core:2.7.2'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
 }
 
-// In this section you declare where to find the dependencies of your project
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+jar {
+    manifest {
+        attributes 'Application-Name': 'UnicoDeEn'
+        attributes 'Main-Class': mainClassName
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 wrapper {

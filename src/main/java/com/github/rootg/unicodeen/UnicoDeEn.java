@@ -11,7 +11,7 @@ public class UnicoDeEn {
         service.staticFiles.header("Cache-Control", "public, max-age=" + expireTimeSeconds);
         service.staticFiles.header("Expires",
                 new Date(System.currentTimeMillis() + expireTimeSeconds * 1000).toString());
-        service.externalStaticFileLocation(UnicoDeEn.class.getClassLoader().getResource("public").getPath());
+        service.staticFileLocation("public");
         service.init();
     }
 }
