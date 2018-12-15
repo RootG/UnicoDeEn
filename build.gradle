@@ -30,6 +30,6 @@ task stage {
 
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion = '4.10.2'
+    gradleVersion = '5.0'
 }
 
